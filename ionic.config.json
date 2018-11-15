@@ -1,5 +1,7 @@
 {
   "name": "qrscan-ionic",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }

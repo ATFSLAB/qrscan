@@ -1,14 +1,34 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      QR SCAN
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+	<ion-grid>
+	  <ion-row>
+	  	<ion-col col-2>
+	  		<button ion-button (click)="listItems()"><ion-icon name="refresh"></ion-icon></button>
+	  	</ion-col>
+	    <ion-col col-6>
+	      <ion-input [(ngModel)]="codeRead" type="text" placeholder="Tx HASH"></ion-input>
+	    </ion-col>
+	    <ion-col col-2>
+	      <button ion-button (click)="onListItemSearch()"><ion-icon name="ios-search"></ion-icon></button>
+	    </ion-col>
+	    <ion-col col-2>
+	      <button ion-button (click)="openScanner()"><ion-icon name="barcode"></ion-icon></button>
+	    </ion-col>
+	  </ion-row>
+	  <ion-row>
+	    <ion-col col-12>
+	    	<ion-list no-lines>
+	    		<button ion-item *ngFor="let item of items" (click)="onListItemSelected(item.hash)">		<span hash>{{item.hash}}</span> <span timestamp>{{item.datetime}}</span>
+	    		</button>
+	    	</ion-list>
+	    </ion-col>
+	  </ion-row>
+	</ion-grid>
 </ion-content>
